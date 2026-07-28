@@ -11,8 +11,11 @@ import type {
 export const siteConfig = {
   name: "Ramiro Enzo Bogado León",
   title: "Backend Developer | Java · Spring Boot | AI Agents · MCP · RAG",
+  shortTitle: "Backend Developer — Java, Spring Boot & AI Agents",
   description:
     "Backend Developer in training, specialized in Java and Spring Boot, with hands-on experience designing and implementing REST APIs, client-server architecture, and SQL/NoSQL database modeling. Currently in the 4th year of my Bachelor's in Information Systems (UNLA), complemented by a postgraduate diploma in Software Development and AI Agent Architecture.",
+  shortDescription:
+    "Backend Developer specialized in Java and Spring Boot, with hands-on experience in REST APIs, database modeling, and AI Agent architecture.",
   url: "https://ramirobogado.dev",
   email: "ramiro99bogado@gmail.com",
   github: "https://github.com/RamiroBogado",
@@ -57,42 +60,36 @@ export const aboutTimeline: TimelineItem[] = [
     description:
       "Over 8 years of experience diagnosing, repairing, and maintaining desktop computers, laptops, and PlayStation consoles. Assembly, upgrading, OS setup, and network configuration.",
   },
-  {
-    title: "Electronics Technician",
-    subtitle: "E.E.S.T. No. 5 '2 de Abril', Temperley",
-    description:
-      "Technical degree in Electronics with a strong foundation in hardware diagnostics, circuit analysis, and systems maintenance.",
-  },
 ];
 
 export const technologies: Technology[] = [
-  { name: "Java", category: "Backend", level: "Advanced", icon: "java" },
-  { name: "Spring Boot", category: "Backend", level: "Advanced", icon: "spring" },
-  { name: "Spring MVC", category: "Backend", level: "Advanced", icon: "spring" },
-  { name: "Hibernate / JPA", category: "Backend", level: "Advanced", icon: "database" },
-  { name: "REST APIs", category: "Backend", level: "Advanced", icon: "api" },
-  { name: "Maven", category: "Backend", level: "Advanced", icon: "maven" },
-  { name: "Node.js", category: "Backend", level: "Intermediate", icon: "nodejs" },
-  { name: "Express.js", category: "Backend", level: "Intermediate", icon: "express" },
-  { name: "React", category: "Frontend", level: "Intermediate", icon: "react" },
-  { name: "Next.js", category: "Frontend", level: "Intermediate", icon: "nextjs" },
-  { name: "TypeScript", category: "Frontend", level: "Intermediate", icon: "typescript" },
-  { name: "JavaScript", category: "Frontend", level: "Intermediate", icon: "javascript" },
-  { name: "Tailwind CSS", category: "Frontend", level: "Intermediate", icon: "tailwind" },
-  { name: "Bootstrap", category: "Frontend", level: "Intermediate", icon: "bootstrap" },
-  { name: "MySQL", category: "Database", level: "Advanced", icon: "mysql" },
-  { name: "SQL", category: "Database", level: "Advanced", icon: "sql" },
-  { name: "MongoDB", category: "Database", level: "Intermediate", icon: "mongodb" },
-  { name: "MCP Protocol", category: "AI", level: "Intermediate", icon: "mcp" },
-  { name: "LangGraph", category: "AI", level: "Intermediate", icon: "langgraph" },
-  { name: "RAG Systems", category: "AI", level: "Intermediate", icon: "rag" },
-  { name: "AI-Ops", category: "AI", level: "Learning", icon: "aiops" },
-  { name: "Context Engineering", category: "AI", level: "Learning", icon: "context" },
-  { name: "Docker", category: "DevOps", level: "Intermediate", icon: "docker" },
-  { name: "Git", category: "Tools", level: "Advanced", icon: "git" },
-  { name: "GitHub", category: "Tools", level: "Advanced", icon: "github" },
-  { name: "Postman", category: "Tools", level: "Advanced", icon: "postman" },
-  { name: "Linux", category: "Tools", level: "Advanced", icon: "linux" },
+  { name: "Java", category: "Backend", level: "Advanced", iconName: "Coffee" },
+  { name: "Spring Boot", category: "Backend", level: "Advanced", iconName: "Leaf" },
+  { name: "Spring MVC", category: "Backend", level: "Advanced", iconName: "Leaf" },
+  { name: "Hibernate / JPA", category: "Backend", level: "Advanced", iconName: "Database" },
+  { name: "REST APIs", category: "Backend", level: "Advanced", iconName: "Globe" },
+  { name: "Maven", category: "Backend", level: "Advanced", iconName: "Package" },
+  { name: "Node.js", category: "Backend", level: "Intermediate", iconName: "Server" },
+  { name: "Express.js", category: "Backend", level: "Intermediate", iconName: "Zap" },
+  { name: "React", category: "Frontend", level: "Intermediate", iconName: "Atom" },
+  { name: "Next.js", category: "Frontend", level: "Intermediate", iconName: "FileJson" },
+  { name: "TypeScript", category: "Frontend", level: "Intermediate", iconName: "FileCode" },
+  { name: "JavaScript", category: "Frontend", level: "Intermediate", iconName: "Braces" },
+  { name: "Tailwind CSS", category: "Frontend", level: "Intermediate", iconName: "Palette" },
+  { name: "Bootstrap", category: "Frontend", level: "Intermediate", iconName: "Columns2" },
+  { name: "MySQL", category: "Database", level: "Advanced", iconName: "Database" },
+  { name: "SQL", category: "Database", level: "Advanced", iconName: "FileSpreadsheet" },
+  { name: "MongoDB", category: "Database", level: "Intermediate", iconName: "Database" },
+  { name: "MCP Protocol", category: "AI", level: "Intermediate", iconName: "Plug" },
+  { name: "LangGraph", category: "AI", level: "Intermediate", iconName: "GitBranch" },
+  { name: "RAG Systems", category: "AI", level: "Intermediate", iconName: "BookOpen" },
+  { name: "AI-Ops", category: "AI", level: "Learning", iconName: "Cpu" },
+  { name: "Context Engineering", category: "AI", level: "Learning", iconName: "Puzzle" },
+  { name: "Docker", category: "DevOps", level: "Intermediate", iconName: "Box" },
+  { name: "Git", category: "Tools", level: "Advanced", iconName: "GitBranch" },
+  { name: "GitHub", category: "Tools", level: "Advanced", iconName: "GitFork" },
+  { name: "Postman", category: "Tools", level: "Advanced", iconName: "Send" },
+  { name: "Linux", category: "Tools", level: "Advanced", iconName: "Terminal" },
 ];
 
 export const featuredProjects: Project[] = [
@@ -101,7 +98,7 @@ export const featuredProjects: Project[] = [
     title: "ChatAnalyticsPlatform",
     description:
       "Web application for processing exported WhatsApp conversations and generating interactive statistics on participant activity. Built with a client-server architecture: Spring Boot backend and React/Next.js frontend for metrics visualization.",
-    image: "/projects/chat-analytics.jpg",
+    image: "/projects/chat-analytics.svg",
     technologies: ["Java", "Spring Boot", "React", "Next.js", "TypeScript", "MySQL"],
     githubUrl: "https://github.com/RamiroBogado/ChatAnalyticsPlatform",
     liveUrl: "#",
@@ -112,7 +109,7 @@ export const featuredProjects: Project[] = [
     title: "Appointment Management System",
     description:
       "Web application for appointment management, handling users, specialties, and assignments through a layered architecture built on Spring Boot with Spring Data JPA and Hibernate.",
-    image: "/projects/appointment-system.jpg",
+    image: "/projects/appointment-system.svg",
     technologies: ["Java", "Spring Boot", "Spring Data JPA", "Hibernate", "MySQL", "Thymeleaf"],
     githubUrl: "https://github.com/RamiroBogado/AppSpringBootTurnosG16",
     liveUrl: "#",
@@ -123,7 +120,7 @@ export const featuredProjects: Project[] = [
     title: "Digital Video Game Distribution Platform",
     description:
       "Steam-inspired web application simulating a digital game distribution platform: browsable catalog, detailed game info, simulated purchases, and a user library, all in a modern, responsive interface built with React and Vite.",
-    image: "/projects/game-platform.jpg",
+    image: "/projects/game-platform.svg",
     technologies: ["React", "Vite", "JavaScript", "HTML5", "CSS3", "Bootstrap"],
     githubUrl: "https://github.com/RamiroBogado/DemoSteam-UNLA-PS20261C-E05",
     liveUrl: "#",
@@ -163,11 +160,22 @@ export const experiences: Experience[] = [
       "Classification and prioritization of requests by criticality level, optimizing response times",
       "Continuous communication with medical teams and emergency organizations to coordinate operations",
     ],
-  }
+  },
+];
 
+export const githubRepos = [
+  "RamiroBogado/ChatAnalyticsPlatform",
+  "RamiroBogado/AppSpringBootTurnosG16",
+  "RamiroBogado/DemoSteam-UNLA-PS20261C-E05",
 ];
 
 export const educationList: Education[] = [
+  {
+    degree: "Electronics Technician",
+    institution: "E.E.S.T. No. 5 '2 de Abril', Temperley",
+    period: "Graduated",
+    status: "Completed",
+  },
   {
     degree: "Analista Programador Universitario",
     institution: "Universidad Nacional de Lanús",

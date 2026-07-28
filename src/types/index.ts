@@ -19,7 +19,7 @@ export interface Technology {
   name: string;
   category: TechCategory;
   level: ExperienceLevel;
-  icon: string;
+  iconName?: string;
 }
 
 export type TechCategory = "Backend" | "Frontend" | "Database" | "AI" | "DevOps" | "Tools";
@@ -49,13 +49,4 @@ export interface Education {
   institution: string;
   period: string;
   status: string;
-}
-
-export interface GitHubRepo {
-  name: string;
-  description: string;
-  stars: number;
-  forks: number;
-  language: string;
-  url: string;
 }

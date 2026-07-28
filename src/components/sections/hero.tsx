@@ -3,22 +3,23 @@
 import { ArrowDown, FileDown } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/common/icons";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { siteConfig, heroBadges } from "@/data";
 import { motion } from "framer-motion";
 
 function HeroIllustration() {
   return (
-    <div className="pointer-events-none relative hidden lg:flex items-center justify-center">
+    <div className="pointer-events-none relative hidden items-center justify-center lg:flex">
       <div className="relative h-[400px] w-[400px]">
-        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 via-secondary/10 to-transparent animate-pulse-glow" />
+        <div className="from-primary/20 via-secondary/10 animate-pulse-glow absolute inset-0 rounded-full bg-gradient-to-br to-transparent" />
 
-        <div className="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-border bg-card/50 backdrop-blur-sm flex items-center justify-center">
+        <div className="border-border bg-card/50 absolute top-1/2 left-1/2 flex h-64 w-64 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-2xl border backdrop-blur-sm">
           <div className="space-y-3 text-center">
             <div className="flex justify-center gap-2">
               {["{", "}", "<", "/", ">"].map((char, i) => (
                 <span
                   key={i}
-                  className="text-2xl font-mono font-bold text-accent"
+                  className="text-accent font-mono text-2xl font-bold"
                   style={{ animationDelay: `${i * 0.15}s` }}
                 >
                   {char}
@@ -26,34 +27,32 @@ function HeroIllustration() {
               ))}
             </div>
             <div className="flex flex-wrap justify-center gap-1.5">
-              <span className="rounded-md bg-primary/10 px-2 py-0.5 text-xs font-mono text-accent">
+              <span className="bg-primary/10 text-accent rounded-md px-2 py-0.5 font-mono text-xs">
                 @Component
               </span>
-              <span className="rounded-md bg-primary/10 px-2 py-0.5 text-xs font-mono text-accent">
+              <span className="bg-primary/10 text-accent rounded-md px-2 py-0.5 font-mono text-xs">
                 @Bean
               </span>
-              <span className="rounded-md bg-primary/10 px-2 py-0.5 text-xs font-mono text-accent">
+              <span className="bg-primary/10 text-accent rounded-md px-2 py-0.5 font-mono text-xs">
                 @Service
               </span>
             </div>
-            <p className="font-mono text-xs text-muted">
-              public class Developer
-            </p>
+            <p className="text-muted font-mono text-xs">public class Developer</p>
           </div>
         </div>
 
-        <div className="absolute -top-4 -right-4 h-20 w-20 rounded-xl border border-border bg-card/50 backdrop-blur-sm flex items-center justify-center">
-          <span className="font-mono text-lg text-accent">JDK</span>
+        <div className="border-border bg-card/50 absolute -top-4 -right-4 flex h-20 w-20 items-center justify-center rounded-xl border backdrop-blur-sm">
+          <span className="text-accent font-mono text-lg">JDK</span>
         </div>
-        <div className="absolute -bottom-2 -left-6 h-16 w-24 rounded-xl border border-border bg-card/50 backdrop-blur-sm flex items-center justify-center">
-          <span className="font-mono text-xs text-accent">Spring</span>
+        <div className="border-border bg-card/50 absolute -bottom-2 -left-6 flex h-16 w-24 items-center justify-center rounded-xl border backdrop-blur-sm">
+          <span className="text-accent font-mono text-xs">Spring</span>
         </div>
-        <div className="absolute top-20 -right-8 h-12 w-20 rounded-xl border border-border bg-card/50 backdrop-blur-sm flex items-center justify-center">
-          <span className="font-mono text-xs text-accent">AI</span>
+        <div className="border-border bg-card/50 absolute top-20 -right-8 flex h-12 w-20 items-center justify-center rounded-xl border backdrop-blur-sm">
+          <span className="text-accent font-mono text-xs">AI</span>
         </div>
 
-        <div className="absolute top-1/2 left-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/10" />
-        <div className="absolute top-1/2 left-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/5" />
+        <div className="border-primary/10 absolute top-1/2 left-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border" />
+        <div className="border-primary/5 absolute top-1/2 left-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full border" />
       </div>
     </div>
   );
@@ -62,9 +61,9 @@ function HeroIllustration() {
 export function Hero() {
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
-      <div className="pointer-events-none absolute top-1/4 -left-32 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
-      <div className="pointer-events-none absolute top-1/3 -right-32 h-96 w-96 rounded-full bg-secondary/5 blur-3xl" />
+      <div className="from-primary/5 pointer-events-none absolute inset-0 bg-gradient-to-b via-transparent to-transparent" />
+      <div className="bg-primary/5 pointer-events-none absolute top-1/4 -left-32 h-96 w-96 rounded-full blur-3xl" />
+      <div className="bg-secondary/5 pointer-events-none absolute top-1/3 -right-32 h-96 w-96 rounded-full blur-3xl" />
 
       <div className="mx-auto max-w-6xl px-4 pt-24 pb-16 sm:px-6 lg:px-8">
         <div className="flex items-center gap-16 lg:gap-24">
@@ -74,7 +73,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <p className="mb-4 text-sm font-medium uppercase tracking-widest text-accent">
+              <p className="text-accent mb-4 text-sm font-medium tracking-widest uppercase">
                 {siteConfig.title}
               </p>
             </motion.div>
@@ -83,7 +82,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="mb-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl"
+              className="text-foreground mb-4 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
             >
               {siteConfig.name}
             </motion.h1>
@@ -105,9 +104,9 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="mb-8 max-w-xl text-base leading-relaxed text-muted sm:text-lg"
+              className="text-muted mb-8 max-w-xl text-base leading-relaxed sm:text-lg"
             >
-              {siteConfig.description}
+              {siteConfig.shortDescription}
             </motion.p>
 
             <motion.div
@@ -116,41 +115,39 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-wrap gap-3"
             >
-              <a
-                href="#projects"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-primary px-6 text-base font-medium text-foreground transition-all duration-200 hover:bg-secondary hover:shadow-md hover:shadow-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              >
-                View Projects
-                <ArrowDown className="h-4 w-4" />
-              </a>
-              <a
-                href={siteConfig.cvUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-border bg-transparent px-6 text-base font-medium text-foreground transition-all duration-200 hover:border-primary/50 hover:bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              >
-                <FileDown className="h-4 w-4" />
-                Download CV
-              </a>
+              <Button asChild size="lg">
+                <a href="#projects">
+                  View Projects
+                  <ArrowDown className="h-4 w-4" />
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <a href={siteConfig.cvUrl} target="_blank" rel="noopener noreferrer">
+                  <FileDown className="h-4 w-4" />
+                  Download CV
+                </a>
+              </Button>
               <div className="flex gap-2">
-                <a
-                  href={siteConfig.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-transparent text-muted transition-all duration-200 hover:border-primary/50 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                  aria-label="GitHub"
-                >
-                  <GithubIcon className="h-4 w-4" />
-                </a>
-                <a
-                  href={siteConfig.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-transparent text-muted transition-all duration-200 hover:border-primary/50 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                  aria-label="LinkedIn"
-                >
-                  <LinkedinIcon className="h-4 w-4" />
-                </a>
+                <Button asChild variant="outline" size="icon">
+                  <a
+                    href={siteConfig.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                  >
+                    <GithubIcon className="h-4 w-4" />
+                  </a>
+                </Button>
+                <Button asChild variant="outline" size="icon">
+                  <a
+                    href={siteConfig.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                  >
+                    <LinkedinIcon className="h-4 w-4" />
+                  </a>
+                </Button>
               </div>
             </motion.div>
           </div>
@@ -167,7 +164,7 @@ export function Hero() {
       >
         <a
           href="#about"
-          className="flex flex-col items-center gap-2 text-xs text-muted transition-colors hover:text-foreground"
+          className="text-muted hover:text-foreground flex flex-col items-center gap-2 text-xs transition-colors"
         >
           <span>Scroll</span>
           <ArrowDown className="h-4 w-4 animate-bounce" />

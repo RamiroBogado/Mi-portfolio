@@ -1,18 +1,74 @@
 "use client";
 
+import {
+  Coffee,
+  Leaf,
+  Database,
+  Globe,
+  Package,
+  Server,
+  Zap,
+  Atom,
+  FileJson,
+  FileCode,
+  Palette,
+  Columns2,
+  FileSpreadsheet,
+  Plug,
+  GitBranch,
+  BookOpen,
+  Cpu,
+  Puzzle,
+  Box,
+  GitFork,
+  Send,
+  Terminal,
+  Rocket,
+  Wrench,
+  Monitor,
+  Brain,
+  Braces,
+  type LucideIcon,
+} from "lucide-react";
 import { SectionWrapper } from "@/components/common/section-wrapper";
 import { StaggerContainer, StaggerItem } from "@/components/common/animated";
 import { technologies } from "@/data";
 import type { TechCategory, ExperienceLevel } from "@/types";
 import { cn } from "@/lib/utils";
 
-const categoryIcons: Record<TechCategory, string> = {
-  Backend: "⚙️",
-  Frontend: "🎨",
-  Database: "🗄️",
-  AI: "🤖",
-  DevOps: "🚀",
-  Tools: "🔧",
+const iconMap: Record<string, LucideIcon> = {
+  Coffee,
+  Leaf,
+  Database,
+  Globe,
+  Package,
+  Server,
+  Zap,
+  Atom,
+  FileJson,
+  FileCode,
+  Palette,
+  Columns2,
+  FileSpreadsheet,
+  Plug,
+  GitBranch,
+  BookOpen,
+  Cpu,
+  Puzzle,
+  Box,
+  GitFork,
+  Send,
+  Terminal,
+  Braces,
+};
+
+const categoryIcons: Record<TechCategory, LucideIcon> = {
+  Backend: Server,
+  Frontend: Monitor,
+  Database,
+  AI: Brain,
+  DevOps: Rocket,
+  Tools: Wrench,
 };
 
 const levelColors: Record<ExperienceLevel, string> = {
@@ -21,47 +77,12 @@ const levelColors: Record<ExperienceLevel, string> = {
   Learning: "bg-card text-muted border border-border",
 };
 
-const categoryOrder: TechCategory[] = [
-  "Backend",
-  "Frontend",
-  "Database",
-  "AI",
-  "DevOps",
-  "Tools",
-];
+const categoryOrder: TechCategory[] = ["Backend", "Frontend", "Database", "AI", "DevOps", "Tools"];
 
-const techIcons: Record<string, string> = {
-  java: "☕",
-  spring: "🍃",
-  "nodejs": "🟢",
-  express: "⚡",
-  typescript: "🔷",
-  javascript: "🟨",
-  nextjs: "▲",
-  react: "⚛️",
-  tailwind: "🌊",
-  bootstrap: "🅱️",
-  mysql: "🐬",
-  sql: "🗃️",
-  mongodb: "🍃",
-  mcp: "🔌",
-  langgraph: "🕸️",
-  rag: "📚",
-  aiops: "🤖",
-  context: "🧩",
-  docker: "🐳",
-  git: "📦",
-  github: "🐙",
-  postman: "📮",
-  linux: "🐧",
-  api: "🔗",
-  database: "💾",
-  maven: "📋",
-};
-
-function getTechIcon(name: string): string {
-  const key = name.toLowerCase().replace(/\s+/g, "");
-  return techIcons[key] || "•";
+function TechIcon({ name }: { name?: string }) {
+  const Icon = name ? iconMap[name] : undefined;
+  if (!Icon) return <span className="text-muted text-sm">•</span>;
+  return <Icon className="text-muted h-4 w-4" />;
 }
 
 export function TechStack() {
@@ -76,7 +97,7 @@ export function TechStack() {
   return (
     <SectionWrapper id="tech-stack" title="Tech Stack" subtitle="Technologies">
       <StaggerContainer className="relative">
-        <div className="absolute left-4 top-0 bottom-0 w-px bg-border md:left-1/2 md:-translate-x-px" />
+        <div className="bg-border absolute top-0 bottom-0 left-4 w-px md:left-1/2 md:-translate-x-px" />
 
         {categoryOrder.map(
           (category, index) =>
@@ -84,31 +105,29 @@ export function TechStack() {
               <StaggerItem
                 key={category}
                 className={`relative mb-12 last:mb-0 ${
-                  index % 2 === 0
-                    ? "md:pl-12 md:ml-auto md:w-1/2"
-                    : "md:pr-12 md:w-1/2"
+                  index % 2 === 0 ? "md:ml-auto md:w-1/2 md:pl-12" : "md:w-1/2 md:pr-12"
                 } ml-0 pl-12`}
               >
-                <div className="rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-sm hover:shadow-primary/5">
+                <div className="border-border bg-card hover:border-primary/30 hover:shadow-primary/5 rounded-xl border p-6 transition-all duration-300 hover:shadow-sm">
                   <div className="mb-4 flex items-center gap-3">
-                    <span className="text-xl">{categoryIcons[category]}</span>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+                    {(() => {
+                      const CatIcon = categoryIcons[category];
+                      return <CatIcon className="text-accent h-5 w-5" />;
+                    })()}
+                    <h3 className="text-foreground text-sm font-semibold tracking-wider uppercase">
                       {category}
                     </h3>
                   </div>
                   <div className="space-y-3">
                     {grouped[category].map((tech) => (
-                      <div
-                        key={tech.name}
-                        className="flex items-center justify-between"
-                      >
+                      <div key={tech.name} className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <span className="text-sm">{getTechIcon(tech.name)}</span>
-                          <span className="text-sm text-muted">{tech.name}</span>
+                          <TechIcon name={tech.iconName} />
+                          <span className="text-muted text-sm">{tech.name}</span>
                         </div>
                         <span
                           className={cn(
-                            "rounded-md px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider",
+                            "rounded-md px-2 py-0.5 text-[10px] font-medium tracking-wider uppercase",
                             levelColors[tech.level]
                           )}
                         >

@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/common/theme-provider";
+import { siteConfig } from "@/data";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,8 +14,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://ramirobogado.dev";
-
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -21,7 +21,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: "Ramiro Bogado | Backend Developer - Java, Spring Boot & AI Agents",
     template: "%s | Ramiro Bogado",
@@ -45,26 +45,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteUrl,
+    url: siteConfig.url,
     siteName: "Ramiro Bogado",
     title: "Ramiro Bogado | Backend Developer",
     description:
       "Backend Developer specialized in Java and Spring Boot. Building scalable applications and exploring AI agents.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Ramiro Bogado - Backend Developer",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Ramiro Bogado | Backend Developer",
     description:
       "Backend Developer specialized in Java and Spring Boot. REST APIs, client-server architecture, and AI agents with MCP, LangGraph, and RAG.",
-    images: ["/og-image.png"],
     creator: "@ramirobogado",
   },
   robots: {
@@ -84,20 +75,12 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Ramiro Enzo Bogado León",
-  url: siteUrl,
+  url: siteConfig.url,
   jobTitle: "Backend Developer",
   description:
     "Backend Developer specialized in Java and Spring Boot. REST APIs, client-server architecture, and AI agents with MCP, LangGraph, and RAG.",
-  sameAs: [
-    "https://github.com/RamiroBogado",
-    "https://www.linkedin.com/in/ramirobogado/",
-  ],
-  knowsAbout: [
-    "Java",
-    "Spring Boot",
-    "Artificial Intelligence",
-    "Software Engineering",
-  ],
+  sameAs: ["https://github.com/RamiroBogado", "https://www.linkedin.com/in/ramirobogado/"],
+  knowsAbout: ["Java", "Spring Boot", "Artificial Intelligence", "Software Engineering"],
 };
 
 export default function RootLayout({
@@ -109,6 +92,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable}`}
+      suppressHydrationWarning
     >
       <head>
         <script
@@ -116,8 +100,15 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-background font-sans antialiased">
-        {children}
+      <body className="bg-background min-h-screen font-sans antialiased">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

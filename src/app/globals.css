@@ -3,19 +3,80 @@
 @theme inline {
   --color-background: #050816;
   --color-card: #111827;
-  --color-primary: #2563EB;
-  --color-secondary: #1D4ED8;
-  --color-accent: #3B82F6;
-  --color-foreground: #F9FAFB;
-  --color-muted: #94A3B8;
-  --color-border: #1E293B;
+  --color-primary: #2563eb;
+  --color-secondary: #1d4ed8;
+  --color-accent: #3b82f6;
+  --color-foreground: #f9fafb;
+  --color-muted: #94a3b8;
+  --color-border: #1e293b;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
+html.light {
+  --color-background: #ffffff;
+  --color-card: #f8fafc;
+  --color-primary: #2563eb;
+  --color-secondary: #1d4ed8;
+  --color-accent: #2563eb;
+  --color-foreground: #020617;
+  --color-muted: #475569;
+  --color-border: #e2e8f0;
+}
+
+html.light .bg-background {
+  background-color: var(--color-background);
+}
+html.light .bg-background\/80 {
+  background-color: color-mix(in oklab, var(--color-background) 80%, transparent);
+}
+html.light .bg-background\/95 {
+  background-color: color-mix(in oklab, var(--color-background) 95%, transparent);
+}
+html.light .bg-card {
+  background-color: var(--color-card);
+}
+html.light .bg-card\/50 {
+  background-color: color-mix(in oklab, var(--color-card) 50%, transparent);
+}
+html.light .text-foreground {
+  color: var(--color-foreground);
+}
+html.light .text-muted {
+  color: var(--color-muted);
+}
+html.light .text-accent {
+  color: var(--color-accent);
+}
+html.light .border-border {
+  border-color: var(--color-border);
+}
+html.light .hover\:bg-card:hover {
+  background-color: var(--color-card);
+}
+html.light .hover\:text-foreground:hover {
+  color: var(--color-foreground);
+}
+html.light .hover\:text-accent:hover {
+  color: var(--color-accent);
+}
+html.light .hover\:border-primary\/30:hover {
+  border-color: color-mix(in oklab, var(--color-primary) 30%, transparent);
+}
+html.light .hover\:border-primary\/50:hover {
+  border-color: color-mix(in oklab, var(--color-primary) 50%, transparent);
+}
+html.light .focus-visible\:ring-offset-background:focus-visible {
+  --tw-ring-offset-color: var(--color-background);
+}
+
 * {
   scrollbar-width: thin;
-  scrollbar-color: #1E293B transparent;
+  scrollbar-color: #1e293b transparent;
+}
+
+html.light * {
+  scrollbar-color: #e2e8f0 transparent;
 }
 
 html {
@@ -29,11 +90,16 @@ body {
 }
 
 ::selection {
-  background: #2563EB;
-  color: #F9FAFB;
+  background: #2563eb;
+  color: #f9fafb;
 }
 
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
 }
