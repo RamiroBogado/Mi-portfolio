@@ -23,19 +23,22 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Ramiro Bogado | Backend Developer - Java, Spring Boot & AI Agents",
+    default: "Ramiro Bogado | Junior Backend Developer - Java, Spring Boot, React & AI Agents",
     template: "%s | Ramiro Bogado",
   },
   description:
-    "Backend Developer specialized in Java and Spring Boot. Hands-on experience with REST APIs, client-server architecture, and SQL/NoSQL databases. Pursuing a diploma in AI Agent Architecture with MCP, LangGraph, and RAG.",
+    "Junior Backend Developer specialized in Java and Spring Boot, with applied AI (MCP, RAG, SDD). Builder of FinanzasAppSDD, a multi-user finance platform with an intelligent assistant. Certified in Building with the Claude API + MCP (Anthropic).",
   keywords: [
     "Backend Developer",
+    "Junior Developer",
     "Java",
     "Spring Boot",
+    "React",
     "AI Agents",
     "MCP",
     "LangGraph",
     "RAG",
+    "SDD",
     "Software Engineer",
     "Argentina",
     "UNLA",
@@ -47,15 +50,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteConfig.url,
     siteName: "Ramiro Bogado",
-    title: "Ramiro Bogado | Backend Developer",
+    title: "Ramiro Bogado | Junior Backend Developer",
     description:
-      "Backend Developer specialized in Java and Spring Boot. Building scalable applications and exploring AI agents.",
+      "Junior Backend Developer specialized in Java and Spring Boot. Builder of FinanzasAppSDD, a multi-user finance platform with an intelligent assistant.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ramiro Bogado | Backend Developer",
+    title: "Ramiro Bogado | Junior Backend Developer",
     description:
-      "Backend Developer specialized in Java and Spring Boot. REST APIs, client-server architecture, and AI agents with MCP, LangGraph, and RAG.",
+      "Junior Backend Developer specialized in Java and Spring Boot. REST APIs, client-server architecture, and AI agents with MCP, RAG, and SDD.",
     creator: "@ramirobogado",
   },
   robots: {
@@ -76,11 +79,11 @@ const jsonLd = {
   "@type": "Person",
   name: "Ramiro Enzo Bogado León",
   url: siteConfig.url,
-  jobTitle: "Backend Developer",
+  jobTitle: "Junior Backend Developer",
   description:
-    "Backend Developer specialized in Java and Spring Boot. REST APIs, client-server architecture, and AI agents with MCP, LangGraph, and RAG.",
+    "Junior Backend Developer specialized in Java and Spring Boot. Builder of FinanzasAppSDD: REST APIs, client-server architecture, and AI agents with MCP, RAG, and SDD.",
   sameAs: ["https://github.com/RamiroBogado", "https://www.linkedin.com/in/ramirobogado/"],
-  knowsAbout: ["Java", "Spring Boot", "Artificial Intelligence", "Software Engineering"],
+  knowsAbout: ["Java", "Spring Boot", "React", "Artificial Intelligence", "Software Engineering"],
 };
 
 export default function RootLayout({
