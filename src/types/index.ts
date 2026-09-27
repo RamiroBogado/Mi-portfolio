@@ -32,6 +32,7 @@ export interface Project {
   description: string;
   image: string;
   technologies: string[];
+  repo: string;
   githubUrl?: string;
   liveUrl?: string;
   featured: boolean;

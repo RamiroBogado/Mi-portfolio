@@ -7,7 +7,7 @@ import { GitHubStats } from "@/components/common/github-stars";
 import { SectionWrapper } from "@/components/common/section-wrapper";
 import { StaggerContainer, StaggerItem } from "@/components/common/animated";
 import { Badge } from "@/components/ui/badge";
-import { featuredProjects, githubRepos } from "@/data";
+import { featuredProjects } from "@/data";
 
 export function FeaturedProjects() {
   return (
@@ -69,7 +69,7 @@ export function FeaturedProjects() {
                   </a>
                 )}
                 <div className="ml-auto">
-                  <GitHubStats repo={githubRepos[index]} />
+                  <GitHubStats repo={project.repo} />
                 </div>
               </div>
             </div>

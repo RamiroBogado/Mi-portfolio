@@ -126,6 +126,7 @@ export const featuredProjects: Project[] = [
       "SDD",
     ],
     githubUrl: "https://github.com/RamiroBogado/FinanzasAppSDD",
+    repo: "RamiroBogado/FinanzasAppSDD",
     liveUrl: "#",
     featured: true,
   },
@@ -137,6 +138,7 @@ export const featuredProjects: Project[] = [
     image: "/projects/chat-analytics.svg",
     technologies: ["Java", "Spring Boot", "React", "Next.js", "TypeScript", "MySQL"],
     githubUrl: "https://github.com/RamiroBogado/ChatAnalyticsPlatform",
+    repo: "RamiroBogado/ChatAnalyticsPlatform",
     liveUrl: "#",
     featured: true,
   },
@@ -148,6 +150,7 @@ export const featuredProjects: Project[] = [
     image: "/projects/app-futbol.svg",
     technologies: ["Kotlin", "Android", "REST APIs", "SQLite", "Shared Preferences"],
     githubUrl: "https://github.com/RamiroBogado/AppFutbol",
+    repo: "RamiroBogado/AppFutbol",
     liveUrl: "#",
     featured: true,
   },
@@ -159,6 +162,7 @@ export const featuredProjects: Project[] = [
     image: "/projects/appointment-system.svg",
     technologies: ["Java", "Spring Boot", "Spring Data JPA", "Hibernate", "MySQL", "Thymeleaf"],
     githubUrl: "https://github.com/RamiroBogado/AppSpringBootTurnosG16",
+    repo: "RamiroBogado/AppSpringBootTurnosG16",
     liveUrl: "#",
     featured: true,
   },
@@ -198,13 +202,6 @@ export const experiences: Experience[] = [
       "Resolved 520+ support cases with quoting, customer service, and repair follow-up",
     ],
   },
-];
-
-export const githubRepos = [
-  "RamiroBogado/FinanzasAppSDD",
-  "RamiroBogado/ChatAnalyticsPlatform",
-  "RamiroBogado/AppFutbol",
-  "RamiroBogado/AppSpringBootTurnosG16",
 ];
 
 export const educationList: Education[] = [
