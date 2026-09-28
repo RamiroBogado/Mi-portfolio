@@ -9,6 +9,13 @@ import { StaggerContainer, StaggerItem } from "@/components/common/animated";
 import { Badge } from "@/components/ui/badge";
 import { featuredProjects } from "@/data";
 
+function projectImageAlt(title: string, description: string): string {
+  const firstSentence = description.split(". ")[0] ?? description;
+  const short =
+    firstSentence.length > 120 ? `${firstSentence.slice(0, 117).trimEnd()}...` : firstSentence;
+  return `${title} project preview: ${short}`;
+}
+
 export function FeaturedProjects() {
   return (
     <SectionWrapper id="projects" title="Featured Projects" subtitle="Work">
@@ -26,7 +33,7 @@ export function FeaturedProjects() {
               <div className="relative mb-4 h-40 overflow-hidden rounded-lg">
                 <Image
                   src={project.image}
-                  alt={project.title}
+                  alt={projectImageAlt(project.title, project.description)}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 50vw"
