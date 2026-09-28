@@ -111,7 +111,7 @@ export const featuredProjects: Project[] = [
     id: "finanzasapp-sdd",
     title: "FinanzasAppSDD",
     description:
-      "Multi-user personal finance management platform with an integrated intelligent assistant, built with spec-driven development (OpenSpec). JWT-secured REST API (Node.js + Express), React dashboard with budgets, savings goals and alerts, and a RAG financial advisor (FastAPI + Ollama + ChromaDB) that answers in natural language and executes explicitly confirmed actions. Dockerized, with 220+ automated tests across backend and AI services.",
+      "Multi-user finance tracker that centralizes budgets, savings goals and alerts with an AI assistant for natural-language queries. Built with SDD: JWT-secured Express API plus React dashboard, MCP tools and RAG advisor (FastAPI, Ollama, ChromaDB). Live demo with real data — Dockerized, 220 automated tests, JWT auth and SQLite persistence.",
     image: "/projects/finanzasapp.svg",
     technologies: [
       "React",
@@ -127,7 +127,7 @@ export const featuredProjects: Project[] = [
     ],
     githubUrl: "https://github.com/RamiroBogado/FinanzasAppSDD",
     repo: "RamiroBogado/FinanzasAppSDD",
-    liveUrl: "#",
+    liveUrl: "https://finanzas-app-sdd.vercel.app/",
     featured: true,
   },
   {
