@@ -16,7 +16,7 @@ export const siteConfig = {
     "Junior Backend Developer specialized in Java and Spring Boot, with applied AI (MCP, RAG, SDD). Builder of FinanzasAppSDD, a multi-user personal finance platform with an intelligent assistant. Certified in Building with the Claude API + MCP (Anthropic). 4th-year Information Systems student at UNLa with a GPA of 8.20/10.",
   shortDescription:
     "Junior Backend Developer (Java/Spring Boot) building REST APIs and AI-powered apps — including FinanzasAppSDD, a multi-user finance manager with an intelligent assistant.",
-  url: "https://mi-portfolio-nu-gold.vercel.app",
+  url: "https://ramirobogado-portfolio.vercel.app",
   email: "ramiro99bogado@gmail.com",
   github: "https://github.com/RamiroBogado",
   linkedin: "https://www.linkedin.com/in/ramirobogado/",

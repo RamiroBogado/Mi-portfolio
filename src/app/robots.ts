@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { siteConfig } from "@/data";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/api/",
     },
-    sitemap: "https://ramirobogado.dev/sitemap.xml",
+    sitemap: `${siteConfig.url}/sitemap.xml`,
   };
 }

@@ -22,6 +22,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  alternates: {
+    canonical: siteConfig.url,
+  },
   title: {
     default: "Ramiro Bogado | Junior Backend Developer - Java, Spring Boot, React & AI Agents",
     template: "%s | Ramiro Bogado",
