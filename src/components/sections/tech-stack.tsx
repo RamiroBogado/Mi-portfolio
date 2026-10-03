@@ -28,6 +28,14 @@ import {
   Monitor,
   Brain,
   Braces,
+  Shield,
+  Key,
+  Code,
+  Sparkles,
+  RefreshCw,
+  ListChecks,
+  FlaskConical,
+  Kanban,
   type LucideIcon,
 } from "lucide-react";
 import { SectionWrapper } from "@/components/common/section-wrapper";
@@ -60,6 +68,14 @@ const iconMap: Record<string, LucideIcon> = {
   Send,
   Terminal,
   Braces,
+  Shield,
+  Key,
+  Code,
+  Sparkles,
+  RefreshCw,
+  ListChecks,
+  FlaskConical,
+  Kanban,
 };
 
 const categoryIcons: Record<TechCategory, LucideIcon> = {
