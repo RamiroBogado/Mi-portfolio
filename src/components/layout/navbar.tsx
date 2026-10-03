@@ -5,7 +5,9 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/common/theme-toggle";
+import { LanguageToggle } from "@/components/common/language-toggle";
 import { navLinks } from "@/data";
+import { useLanguage } from "@/i18n/language-provider";
 import { useScrollPosition } from "@/hooks/use-scroll";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -64,6 +66,8 @@ export function Navbar() {
   const scrollY = useScrollPosition();
   const isScrolled = scrollY > 50;
   const menuRef = useFocusTrap(isOpen, () => setIsOpen(false));
+  const { locale, dictionary } = useLanguage();
+  const links = navLinks[locale];
 
   return (
     <header
@@ -82,7 +86,7 @@ export function Navbar() {
         </a>
 
         <div className="hidden items-center gap-1 md:flex">
-          {navLinks.map((link) => (
+          {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -92,15 +96,17 @@ export function Navbar() {
             </a>
           ))}
           <ThemeToggle />
+          <LanguageToggle />
         </div>
 
         <div className="flex items-center gap-1 md:hidden">
           <ThemeToggle />
+          <LanguageToggle />
           <Button
             variant="ghost"
             size="icon"
             onClick={() => setIsOpen(!isOpen)}
-            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-label={isOpen ? dictionary.nav.closeMenu : dictionary.nav.openMenu}
             aria-expanded={isOpen}
           >
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -118,10 +124,10 @@ export function Navbar() {
             className="border-border bg-background/95 border-b backdrop-blur-xl md:hidden"
             role="dialog"
             aria-modal="true"
-            aria-label="Navigation menu"
+            aria-label={dictionary.nav.menuLabel}
           >
             <div className="space-y-1 px-4 py-4">
-              {navLinks.map((link) => (
+              {links.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}

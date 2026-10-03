@@ -5,6 +5,7 @@ import { GithubIcon, LinkedinIcon } from "@/components/common/icons";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { siteConfig, heroBadges } from "@/data";
+import { useLanguage } from "@/i18n/language-provider";
 import { motion } from "framer-motion";
 
 function HeroIllustration() {
@@ -59,6 +60,8 @@ function HeroIllustration() {
 }
 
 export function Hero() {
+  const { dictionary } = useLanguage();
+
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden">
       <div className="from-primary/5 pointer-events-none absolute inset-0 bg-gradient-to-b via-transparent to-transparent" />
@@ -74,7 +77,7 @@ export function Hero() {
               transition={{ duration: 0.5 }}
             >
               <p className="text-accent mb-4 text-sm font-medium tracking-widest uppercase">
-                {siteConfig.title}
+                {dictionary.hero.eyebrow}
               </p>
             </motion.div>
 
@@ -106,7 +109,7 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-muted mb-8 max-w-xl text-base leading-relaxed sm:text-lg"
             >
-              {siteConfig.shortDescription}
+              {dictionary.hero.description}
             </motion.p>
 
             <motion.div
@@ -117,14 +120,14 @@ export function Hero() {
             >
               <Button asChild size="lg">
                 <a href="#projects">
-                  View Projects
+                  {dictionary.hero.viewProjects}
                   <ArrowDown className="h-4 w-4" />
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <a href={siteConfig.cvUrl} target="_blank" rel="noopener noreferrer">
                   <FileDown className="h-4 w-4" />
-                  Download CV
+                  {dictionary.hero.downloadCv}
                 </a>
               </Button>
               <div className="flex gap-2">
@@ -166,7 +169,7 @@ export function Hero() {
           href="#about"
           className="text-muted hover:text-foreground flex flex-col items-center gap-2 text-xs transition-colors"
         >
-          <span>Scroll</span>
+          <span>{dictionary.hero.scroll}</span>
           <ArrowDown className="h-4 w-4 animate-bounce" />
         </a>
       </motion.div>

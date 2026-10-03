@@ -3,33 +3,37 @@
 import { SectionWrapper } from "@/components/common/section-wrapper";
 import { StaggerContainer, StaggerItem } from "@/components/common/animated";
 import { experiences } from "@/data";
+import { useLanguage } from "@/i18n/language-provider";
 
 export function Experience() {
-  return (
-    <SectionWrapper id="experience" title="Experience" subtitle="Career">
-      <StaggerContainer className="relative">
-        <div className="absolute left-4 top-0 bottom-0 w-px bg-border md:left-1/2 md:-translate-x-px" />
+  const { locale, dictionary } = useLanguage();
+  const items = experiences[locale];
 
-        {experiences.map((exp, index) => (
+  return (
+    <SectionWrapper
+      id="experience"
+      title={dictionary.experience.title}
+      subtitle={dictionary.experience.subtitle}
+    >
+      <StaggerContainer className="relative">
+        <div className="bg-border absolute top-0 bottom-0 left-4 w-px md:left-1/2 md:-translate-x-px" />
+
+        {items.map((exp, index) => (
           <StaggerItem
             key={index}
             className={`relative mb-12 last:mb-0 ${
-              index % 2 === 0
-                ? "md:text-right md:ml-auto md:w-1/2 md:pl-12"
-                : "md:w-1/2 md:pr-12"
-            } ml-0 pl-12`}>
-
-            <div className="rounded-xl border border-border bg-card p-6 text-center transition-all duration-300 hover:border-primary/30 hover:shadow-sm hover:shadow-primary/5">
-              <span className="text-xs font-medium uppercase tracking-wider text-accent">
+              index % 2 === 0 ? "md:ml-auto md:w-1/2 md:pl-12 md:text-right" : "md:w-1/2 md:pr-12"
+            } ml-0 pl-12`}
+          >
+            <div className="border-border bg-card hover:border-primary/30 hover:shadow-primary/5 rounded-xl border p-6 text-center transition-all duration-300 hover:shadow-sm">
+              <span className="text-accent text-xs font-medium tracking-wider uppercase">
                 {exp.period}
               </span>
-              <h3 className="mt-1 text-lg font-semibold text-foreground">
-                {exp.role}
-              </h3>
-              <p className="text-sm text-muted">{exp.company}</p>
+              <h3 className="text-foreground mt-1 text-lg font-semibold">{exp.role}</h3>
+              <p className="text-muted text-sm">{exp.company}</p>
               <ul className="mt-3 space-y-1.5">
                 {exp.description.map((item, i) => (
-                  <li key={i} className="text-sm leading-relaxed text-muted">
+                  <li key={i} className="text-muted text-sm leading-relaxed">
                     {item}
                   </li>
                 ))}

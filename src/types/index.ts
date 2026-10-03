@@ -1,3 +1,5 @@
+export type Locale = "es" | "en";
+
 export interface NavLink {
   label: string;
   href: string;

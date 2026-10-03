@@ -8,21 +8,35 @@ import { SectionWrapper } from "@/components/common/section-wrapper";
 import { StaggerContainer, StaggerItem } from "@/components/common/animated";
 import { Badge } from "@/components/ui/badge";
 import { featuredProjects } from "@/data";
+import { useLanguage } from "@/i18n/language-provider";
 
-function projectImageAlt(title: string, description: string): string {
+function projectImageAlt(
+  title: string,
+  description: string,
+  previewLabel: string,
+  isSpanish: boolean
+): string {
   const firstSentence = description.split(". ")[0] ?? description;
   const short =
     firstSentence.length > 120 ? `${firstSentence.slice(0, 117).trimEnd()}...` : firstSentence;
-  return `${title} project preview: ${short}`;
+  return isSpanish ? `${title}, ${previewLabel}: ${short}` : `${title} ${previewLabel}: ${short}`;
 }
 
 export function FeaturedProjects() {
+  const { locale, dictionary } = useLanguage();
+  const projects = featuredProjects[locale];
+  const isSpanish = locale === "es";
+
   return (
-    <SectionWrapper id="projects" title="Featured Projects" subtitle="Work">
+    <SectionWrapper
+      id="projects"
+      title={dictionary.projects.title}
+      subtitle={dictionary.projects.subtitle}
+    >
       <StaggerContainer className="relative">
         <div className="bg-border absolute top-0 bottom-0 left-4 w-px md:left-1/2 md:-translate-x-px" />
 
-        {featuredProjects.map((project, index) => (
+        {projects.map((project, index) => (
           <StaggerItem
             key={project.id}
             className={`relative mb-12 last:mb-0 ${
@@ -33,7 +47,12 @@ export function FeaturedProjects() {
               <div className="relative mb-4 h-40 overflow-hidden rounded-lg">
                 <Image
                   src={project.image}
-                  alt={projectImageAlt(project.title, project.description)}
+                  alt={projectImageAlt(
+                    project.title,
+                    project.description,
+                    dictionary.projects.previewLabel,
+                    isSpanish
+                  )}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -61,7 +80,7 @@ export function FeaturedProjects() {
                     className="text-muted hover:text-accent flex items-center gap-2 text-sm transition-colors"
                   >
                     <GithubIcon className="h-4 w-4" />
-                    Source Code
+                    {dictionary.projects.sourceCode}
                   </a>
                 )}
                 {project.liveUrl && project.liveUrl !== "#" && (
@@ -72,7 +91,7 @@ export function FeaturedProjects() {
                     className="text-muted hover:text-accent flex items-center gap-2 text-sm transition-colors"
                   >
                     <ExternalLink className="h-4 w-4" />
-                    Live Demo
+                    {dictionary.projects.liveDemo}
                   </a>
                 )}
                 <div className="ml-auto">

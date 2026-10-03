@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/common/theme-provider";
+import { LanguageProvider } from "@/i18n/language-provider";
 import { siteConfig } from "@/data";
 import "./globals.css";
 
@@ -113,7 +114,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

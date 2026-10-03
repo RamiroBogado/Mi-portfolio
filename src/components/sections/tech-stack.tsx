@@ -41,6 +41,7 @@ import {
 import { SectionWrapper } from "@/components/common/section-wrapper";
 import { StaggerContainer, StaggerItem } from "@/components/common/animated";
 import { technologies } from "@/data";
+import { useLanguage } from "@/i18n/language-provider";
 import type { TechCategory, ExperienceLevel } from "@/types";
 import { cn } from "@/lib/utils";
 
@@ -102,6 +103,7 @@ function TechIcon({ name }: { name?: string }) {
 }
 
 export function TechStack() {
+  const { dictionary } = useLanguage();
   const grouped = categoryOrder.reduce(
     (acc, category) => {
       acc[category] = technologies.filter((t) => t.category === category);
@@ -111,7 +113,11 @@ export function TechStack() {
   );
 
   return (
-    <SectionWrapper id="tech-stack" title="Tech Stack" subtitle="Technologies">
+    <SectionWrapper
+      id="tech-stack"
+      title={dictionary.techStack.title}
+      subtitle={dictionary.techStack.subtitle}
+    >
       <StaggerContainer className="relative">
         <div className="bg-border absolute top-0 bottom-0 left-4 w-px md:left-1/2 md:-translate-x-px" />
 
@@ -131,7 +137,7 @@ export function TechStack() {
                       return <CatIcon className="text-accent h-5 w-5" />;
                     })()}
                     <h3 className="text-foreground text-sm font-semibold tracking-wider uppercase">
-                      {category}
+                      {dictionary.techStack.categories[category]}
                     </h3>
                   </div>
                   <div className="space-y-3">
@@ -147,7 +153,7 @@ export function TechStack() {
                             levelColors[tech.level]
                           )}
                         >
-                          {tech.level}
+                          {dictionary.techStack.levels[tech.level]}
                         </span>
                       </div>
                     ))}
